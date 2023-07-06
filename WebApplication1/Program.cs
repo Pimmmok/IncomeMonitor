@@ -1,11 +1,8 @@
-using IncomeMonitor.WebUI.Infrastructure;
-using System.Web.Mvc;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-ControllerBuilder.Current.SetControllerFactory(new NinjectControllerFactory());
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
