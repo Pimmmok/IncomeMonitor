@@ -1,0 +1,14 @@
+﻿@model IEnumerable<IncomeMonitor.Domain.Entities.Procedure>
+@{
+    ViewBag.Title = "Procedures";
+}
+@foreach (var p in Model)
+{
+    <div class="item">
+        <h3>@p.Id</h3>
+        @p.Information
+        @p.Notes
+        @p.ProcedureDate
+        <h4>@p.Value.ToString("c")</h4>
+    </div>
+}
