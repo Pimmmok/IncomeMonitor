@@ -2,7 +2,6 @@
 using IncomeMonitor.Domain.Abstract;
 using Moq;
 using IncomeMonitor.Domain.Entities;
-using Ninject;
 
 namespace IncomeMonitor.WebUI.Controllers
 {
