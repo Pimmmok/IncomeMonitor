@@ -27,7 +27,7 @@ namespace IncomeMonitor.WebUI.Controllers
 
         public ViewResult List()
         {
-            return View(repository.Procedures);
+            return View(repository.Procedurs);
         }
     }
 }

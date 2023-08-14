@@ -8,10 +8,10 @@ namespace IncomeMonitor.Domain.Entities
 {
     public class Procedure
     {
-            public int Id { get; set; }
+            public int ProcedureId { get; set; }
             public string? Information { get; set; }
-            public float Value { get; set; }
-            public string? Notes { get; set; }
+            public decimal Value { get; set; }
+            public string? Note { get; set; }
             public DateTime ProcedureDate { get; set; }
     }
 }

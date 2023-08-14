@@ -1,10 +1,17 @@
 ﻿using IncomeMonitor.Domain.Entities;
-using System.Data.Entity;
-
+using Microsoft.EntityFrameworkCore;
 namespace IncomeMonitor.Domain.Concrete
 {
-    internal class EFDbContext: DbContext
+    public class EFDbContext : DbContext
     {
-        public DbSet<Procedure> Procecdures { get; set; }
+        public EFDbContext(DbContextOptions<EFDbContext> options) : base(options)
+        {
+        }
+
+        public DbSet<Procedure> Procedures { get; set; }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer(@"Data Source=WIN-46F7MUQL36M;Initial Catalog=IncomeMonitor;Integrated Security=True; TrustServerCertificate=True;");
+        //}
     }
 }

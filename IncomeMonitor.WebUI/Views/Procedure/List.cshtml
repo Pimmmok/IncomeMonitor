@@ -5,9 +5,9 @@
 @foreach (var p in Model)
 {
     <div class="item">
-        <h3>@p.Id</h3>
+        <h3>@p.ProcedureId</h3>
         @p.Information
-        @p.Notes
+        @p.Note
         @p.ProcedureDate
         <h4>@p.Value.ToString("c")</h4>
     </div>

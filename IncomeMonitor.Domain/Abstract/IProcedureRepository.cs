@@ -9,6 +9,6 @@ namespace IncomeMonitor.Domain.Abstract
 {
     public interface IProcedureRepository
     {
-        public IQueryable<Procedure> Procedures { get; }
-}
+        public IQueryable<Procedure> Procedurs { get; }
+    }
 }

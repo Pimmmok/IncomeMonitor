@@ -1,21 +1,31 @@
 using Autofac.Extensions.DependencyInjection;
 using Autofac;
 using IncomeMonitor.WebUI.Infrastructure;
+using IncomeMonitor.Domain.Concrete;
 using System.Web.Mvc;
 
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+string connection = builder.Configuration.GetConnectionString("DefaultConnection");
+
+//string connection = builder.Configuration.GetConnectionString("DefaultConnection");
+//builder.Services.AddDbContext<EFDbContext>(options => options.UseSqlServer(connection));
+
+//builder.Services.AddDbContext<EFDbContext>(options => options.UseSqlServer(connection)); TO DO
 
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 
 // Call ConfigureContainer on the Host sub property 
 builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
 {
-    builder.RegisterModule(new PersistanceAutofacModule());
+    builder.RegisterModule(new PersistanceAutofacModule(connection));
 });
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
