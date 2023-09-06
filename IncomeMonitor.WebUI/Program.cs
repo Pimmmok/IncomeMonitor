@@ -1,8 +1,6 @@
 using Autofac.Extensions.DependencyInjection;
 using Autofac;
 using IncomeMonitor.WebUI.Infrastructure;
-using IncomeMonitor.Domain.Concrete;
-using System.Web.Mvc;
 
 using Microsoft.EntityFrameworkCore;
 
