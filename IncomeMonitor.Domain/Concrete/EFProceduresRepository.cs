@@ -1,6 +1,7 @@
 ﻿using IncomeMonitor.Domain.Abstract;
 using IncomeMonitor.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace IncomeMonitor.Domain.Concrete
 {
@@ -18,6 +19,18 @@ namespace IncomeMonitor.Domain.Concrete
         public IQueryable<Procedure> Procedurs
         {
             get { return _context.Procedures; }
+        }
+
+        public Task<int> AddProcedure (Procedure procedure)
+        {
+            _context.Add(procedure);
+            return _context.SaveChangesAsync();
+        }
+
+        public Task<int> RemoveProcedure(Procedure procedure)
+        {
+            _context.Remove(procedure);
+            return _context.SaveChangesAsync();
         }
     }
 }

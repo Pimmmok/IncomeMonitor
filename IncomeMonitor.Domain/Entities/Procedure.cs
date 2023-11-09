@@ -12,6 +12,6 @@ namespace IncomeMonitor.Domain.Entities
             public string? Information { get; set; }
             public decimal Value { get; set; }
             public string? Note { get; set; }
-            public DateTime ProcedureDate { get; set; }
+            public DateTime ProcedureDate { get; set; } = DateTime.Now;
     }
 }

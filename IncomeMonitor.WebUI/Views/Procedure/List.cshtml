@@ -2,13 +2,28 @@
 @{
     ViewBag.Title = "Procedures";
 }
-@foreach (var p in Model)
-{
-    <div class="item">
-        <h3>@p.ProcedureId</h3>
-        @p.Information
-        @p.Note
-        @p.ProcedureDate
-        <h4>@p.Value.ToString("c")</h4>
-    </div>
-}
+<p><a asp-action="Create">Add procedure</a></p>
+<table class="table">
+    <tr><th>Date</th><th>Procedure</th><th>Value</th><th>Note</th></tr>
+    @foreach (var p in Model)
+    {
+        <tr>
+            <td>@p.ProcedureDate.ToString("d")</td>
+            <td>@p.Information</td>
+            <td>@p.Value.ToString("c")</td>
+            <td>@p.Note</td>
+            <td>
+            <a asp-action="Edit" asp-controller="ProcedureController" asp-route-id="@p.ProcedureId">Edit</a>
+            </td>
+            <td>
+                <form asp-controller="" asp-action="Delete" method="post" asp-route-id="@p.ProcedureId">
+                    <input type="submit" value="Delete" />
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+<h2>Time: @DateTime.Now.ToShortTimeString()</h2>
+
+<p>Date: @DateTime.Now.ToLongDateString()</p>

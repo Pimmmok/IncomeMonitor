@@ -10,6 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Procedure\ListSort.cshtml" />
+    <Content Remove="wwwroot\css\site.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\site.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autofac" Version="7.0.1" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.9" />

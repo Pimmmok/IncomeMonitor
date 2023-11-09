@@ -10,5 +10,11 @@ namespace IncomeMonitor.Domain.Abstract
     public interface IProcedureRepository
     {
         public IQueryable<Procedure> Procedurs { get; }
+
+        public Task<int> AddProcedure(Procedure procedure);
+
+        public Task<int> RemoveProcedure(Procedure procedure);
+
+
     }
 }

@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IncomeMonitor.Domain.Entities.Procedure
+<form method="post" asp-antiforgery="true">
+<h2>Add procedure</h2>
+<p>
+    <label asp-for="Information">Information</label><br />
+    <input type="text" asp-for="Information" />
+</p>
+<p>
+    <label asp-for="Value">Value</label><br />
+    <input asp-for="Value" />
+</p>
+<p>
+    <label asp-for="Note">Note</label><br />
+    <input type="text" asp-for="Note" />
+</p>
+<p>
+    <label asp-for="ProcedureDate">ProcedureDate</label><br />
+    <input type="date" asp-for="ProcedureDate" />
+</p>
+<div>
+    <input type="submit" value="Save" />
+</div>
+</form>
