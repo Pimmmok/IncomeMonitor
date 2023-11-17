@@ -14,6 +14,7 @@ namespace IncomeMonitor.Domain.Abstract
         public Task<int> AddProcedure(Procedure procedure);
 
         public Task<int> RemoveProcedure(Procedure procedure);
+        public Task<int> EditProcedure(Procedure procedure);
 
 
     }

@@ -59,7 +59,21 @@ namespace IncomeMonitor.WebUI.Controllers
             return NotFound();
         }
 
-
+        public async Task<IActionResult> Edit (int? id)
+        {
+            if (id != null)
+            {
+                Procedure? procedure = repository.Procedurs.FirstOrDefault(p => p.ProcedureId == id); // why asynch function doesn't work here!!!
+                if (procedure != null) return View(procedure);
+            }
+            return NotFound();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(Procedure procedure)
+        {
+            await repository.EditProcedure(procedure);
+            return RedirectToAction("List");
+        }
 
 
 

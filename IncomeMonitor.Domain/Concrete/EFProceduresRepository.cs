@@ -32,5 +32,12 @@ namespace IncomeMonitor.Domain.Concrete
             _context.Remove(procedure);
             return _context.SaveChangesAsync();
         }
+        public Task<int> EditProcedure(Procedure procedure)
+        {
+            _context.Update(procedure);
+            return _context.SaveChangesAsync();
+        }
+
+
     }
 }

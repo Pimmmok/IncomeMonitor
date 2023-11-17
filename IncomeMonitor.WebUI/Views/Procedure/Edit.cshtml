@@ -1,0 +1,26 @@
+﻿@model IncomeMonitor.Domain.Entities.Procedure
+
+<h2>Edit procedure</h2>
+<form asp-action="Edit" asp-controller="" asp-route-id="@Model.ProcedureId">
+    <p>
+    <label asp-for="Information">Information</label><br />
+    <input type="text" asp-for="Information" />
+    </p>
+    <p>
+        <label asp-for="Value">Value</label><br />
+        <input asp-for="Value" />
+    </p>
+    <p>
+        <label asp-for="Note">Note</label><br />
+        <input type="text" asp-for="Note" />
+    </p>
+    <p>
+        <label asp-for="ProcedureDate">ProcedureDate</label><br />
+        <input type="date" asp-for="ProcedureDate" />
+    </p>
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+</form>
+    
+
