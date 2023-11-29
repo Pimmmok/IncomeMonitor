@@ -7,17 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["IncomeMonitor.WebUI/IncomeMonitor.WebUI.csproj", "IncomeMonitor.WebUI/"]
 COPY ["IncomeMonitor.Domain/IncomeMonitor.Domain.csproj", "IncomeMonitor.Domain/"]
-RUN dotnet restore "IncomeMonitor.WebUI/IncomeMonitor.WebUI.csproj"
+RUN dotnet restore "IncomeMonitor.Domain/IncomeMonitor.Domain.csproj"
 COPY . .
-WORKDIR "/src/IncomeMonitor.WebUI"
-RUN dotnet build "IncomeMonitor.WebUI.csproj" -c Release -o /app/build
+WORKDIR "/src/IncomeMonitor.Domain"
+RUN dotnet build "IncomeMonitor.Domain.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "IncomeMonitor.WebUI.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "IncomeMonitor.Domain.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "IncomeMonitor.WebUI.dll"]
+ENTRYPOINT ["dotnet", "IncomeMonitor.Domain.dll"]

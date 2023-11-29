@@ -5,7 +5,8 @@ using IncomeMonitor.WebUI.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-string connection = builder.Configuration.GetConnectionString("DefaultConnection");
+//string connection = builder.Configuration.GetConnectionString("DefaultConnection");
+string connection = builder.Configuration.GetConnectionString("ConnectionWithDocker");
 
 //string connection = builder.Configuration.GetConnectionString("DefaultConnection");
 //builder.Services.AddDbContext<EFDbContext>(options => options.UseSqlServer(connection));
@@ -17,7 +18,7 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 // Call ConfigureContainer on the Host sub property 
 builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
 {
-    builder.RegisterModule(new PersistanceAutofacModule(connection));
+    builder.RegisterModule(new PersistanceAutofacModule(connection)) ;
 });
 
 // Add services to the container.
